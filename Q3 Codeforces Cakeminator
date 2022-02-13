@@ -1,0 +1,107 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int r,c;
+    cin>>r>>c;
+    char a[r][c];
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            char ch;
+            cin>>ch;
+            a[i][j] = ch;
+        }
+    }
+    int no_of_positive_berries = 0;
+    int total = 0;
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            if(a[i][j]=='S'){
+                break;
+            }
+            no_of_positive_berries++;
+        }
+        if(no_of_positive_berries==c){
+            total += c;
+            for(int j=0;j<c;j++){
+                a[i][j]='x';
+            }
+        }
+        no_of_positive_berries=0;
+    }
+    if(r<=c){
+    int no_of_x = 0;
+    int no_of_pos = 0;
+    int no_of_s = 0;
+    for(int i=0;i<c;i++){
+        for(int j=0;j<r;j++){
+            if(a[j][i]=='S'){
+                no_of_s++;
+            }
+            if(a[j][i]=='x'){
+                no_of_x++;
+            }
+            if(a[j][i]=='.'){
+                no_of_pos++;
+            }
+        }
+        if(no_of_s>0){
+            no_of_pos = 0;
+            no_of_x = 0;
+            no_of_s = 0;
+            continue;
+        }
+        if(no_of_x>0){
+            total += r-no_of_x;
+        }
+        if(no_of_pos==r){
+            total += r;
+        }
+        no_of_x=0;
+        no_of_pos = 0;
+        no_of_s = 0;
+    }
+    }
+    else{
+        int no_of_x = 0;
+    int no_of_pos = 0;
+    int no_of_s = 0;
+    for(int i=0;i<c;i++){
+        for(int j=0;j<r;j++){
+            if(a[j][i]=='S'){
+                no_of_s++;
+            }
+            if(a[j][i]=='x'){
+                no_of_x++;
+            }
+            if(a[j][i]=='.'){
+                no_of_pos++;
+            }
+        }
+        if(no_of_s>0){
+            no_of_s = 0;
+            no_of_pos = 0;
+            no_of_x = 0;
+            continue;
+        }
+        if(no_of_x>0){
+            total += r-no_of_x;
+        }
+        if(no_of_pos==r){
+            total += r;
+        }
+        no_of_x=0;
+        no_of_pos = 0;
+        no_of_s = 0;
+    }
+    }
+    
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cout<<a[i][j]<<" ";
+        }
+        cout<<"\n";
+    }
+    cout<<total;
+ 
+}
