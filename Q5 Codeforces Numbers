@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    long long int n;
+    cin>>n;
+    if(n==9){
+        cout<<9;
+    }
+    else{
+    vector<long long int>v;
+    vector<long long int>v1;
+    while(n!=0){
+        int r = n%10;
+        v.push_back(r);
+        v1.push_back(9-r);
+        n = n/10;
+    }
+    reverse(v.begin(),v.end());
+    reverse(v1.begin(),v1.end());
+    for(int i=0;i<v.size();i++){
+        if(v1[i]==0 && i==0){
+            cout<<9;
+        }
+        else{
+        if(v1[i]<=v[i]){
+            cout<<v1[i];
+        }
+        else{
+            cout<<v[i];
+        }
+        }
+    }
+    }
+}
