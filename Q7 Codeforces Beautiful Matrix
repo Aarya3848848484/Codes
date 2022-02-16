@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    vector<vector<int>>v;
+    int x_ini,y_ini;
+    for(int i=0;i<5;i++){
+        vector<int>v1;
+        for(int j=0;j<5;j++){
+            int x;
+            cin>>x;
+            v1.push_back(x);
+            if(x==1){
+                x_ini = i;
+                y_ini = j;
+            }
+        }
+        v.push_back(v1);
+    }
+    int x_mid = 2,y_mid = 2;
+    int x_diff = abs(x_mid-x_ini);
+    int y_diff = abs(y_mid-y_ini);
+    if(x_diff == 0 && y_diff>0){
+        cout<<y_diff;
+    }
+    else if(x_diff > 0 && y_diff==0){
+        cout<<x_diff;  
+    }
+    else if(x_diff>0 && y_diff>0){
+        cout<<x_diff+y_diff;
+    }
+    else if(x_diff == 0 && y_diff==0){
+        cout<<0;
+    }
+}
