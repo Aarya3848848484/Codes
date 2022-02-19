@@ -1,0 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    string s;
+    cin>>s;
+    char c = s[0];
+    string c1 = s.substr(1,s.length());
+    char c2;
+    string s1;
+    if(islower(c)){
+        c2 = c-32;
+        s1 = c2+c1;
+        cout<<s1;
+    }
+    else{
+        cout<<s;
+    }
+    return 0;
+}
