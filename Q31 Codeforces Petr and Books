@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int n;
+    cin>>n;
+    int no_of_pages_per_day[7];
+    queue<int>q;
+    for(int i=0;i<7;i++){
+        cin>>no_of_pages_per_day[i];
+        q.push(no_of_pages_per_day[i]);
+    }
+    int tot = 0;
+    int day = 0;
+    while(tot<n){
+        int x = q.front();
+        q.pop();
+        tot += x;
+        q.push(x);
+        day++;
+        if(day==7 && tot>=n){
+            break;
+        }
+        if(day==7 && tot<n){
+            day=0;
+        }
+    }
+    cout<<day;
+}
