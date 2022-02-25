@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int i=0,j=i+1;
+    int c = 0,max=0;
+    while(i<n && j<n){
+        if(a[i]<a[j]){
+            c++;
+        }
+        else if(a[i]==a[j]){
+            i++;
+            j++;
+            if(c>max){
+                max = c;
+            }
+            c=0;
+            continue;
+        }
+        else{
+            c=0;
+        }
+        if(c>max){
+            max = c;
+        }
+        i++;
+        j++;
+    }
+    cout<<max+1;
+}
