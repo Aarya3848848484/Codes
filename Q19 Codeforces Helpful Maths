@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    string s;
+    cin>>s;
+    map<char,int>m;
+    for(int i=0;i<s.length();i++){
+        if(s[i]!='+'){
+            m[s[i]]++;
+        }
+    }
+    string final;
+    for(auto x:m){
+        int z = x.second;
+        for(int i=1;i<=z;i++){
+            final += x.first;
+            final += "+";
+        }
+    }
+    cout<<final.substr(0,final.length()-1);
+}
