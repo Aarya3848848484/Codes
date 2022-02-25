@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int n;
+    cin>>n;
+    string t;
+    cin>>t;
+    if(t.length()==1){
+        cout<<t;
+    }
+    else{
+    string ans;
+    int i=0,c=1,k=0;
+    while(i<n-1){
+        string a = t.substr(i,i+1+k);
+        ans += a[0];
+        i = i+c;
+        c++;
+        k++;
+    }
+    cout<<ans;}
+}
